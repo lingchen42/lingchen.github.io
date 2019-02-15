@@ -1,22 +1,23 @@
 ---
 title:  "illustrAItion: a tool that automatically generate drawings from input sentences"
 date:   2018-11-05 22:00:00
-categories: [other]
-tags: [django, reactjs, nlp, image_processing]
+categories: [fun_project]
+tags: [django, reactjs, nlp]
 ---
 
-## Interactive website
-<a href="http://www.illustraition.net/"> http://www.illustraition.net/ </a>
-
-## What is illustrAItion?
+<br>
+### What is illustrAItion?
  Have you ever had this great story that only lacked for illustrations, but were missing the will or desire to draw something? Despair no more, for we bring you **illustrAItion**, the AI-informed web tool for generating illustrations automatically. Simply enter the phrase you want to be sketched, and **illustrAItion** will assemble a matching picture from doodles generated as part of the Google QuickDraw experiment. **illustraAItion** currently support two languages, Chinese and English. <br>
 
  Illustration is developed at Vanderbilt Hackthon V by Ling Chen, Laura Colbran and Ying Ji.
 
-## Demo
+### Demo
 ![illustrAItion_demo]({{ site.url }}/assets/illustrAItion_demo.gif)
 
-## How It Works
+### Code
+[see code on github](https://github.com/lingchen42/illustrAItion)
+
+### How It Works
 ![illustrAItion_pipeline]({{ site.url }}/assets/illustrAItion_pipeline.png)
 
 - **Doodle Data** <br>
@@ -27,3 +28,6 @@ We built the frontend of **illustrAItion** using the React JavaSript Library (`h
 
 - **Backend** <br>
 The input and ouput of the API call is processed using the Django Python Library (`https://www.djangoproject.com/`). The typed phrase is processed into pairs of words connected by a positional preposition using either NLTK (`https://www.nltk.org/`) or SpaCy (`https://spacy.io/`). It then checks to make sure there is a drawing of each word in the doodle database. In the absence of one, it uses the Gensim library to fetch the most similar word. Once the individual drawing are pulled from the database in the form of SVG paths, these are combined such that the individual drawings are arranged to reflect the positional preposition connecting them. This combined path is then returned to the frontend for display.
+
+### Interactive website (down right now)
+<a href="http://www.illustraition.net/"> http://www.illustraition.net/ </a>
